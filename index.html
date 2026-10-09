@@ -2,559 +2,1928 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Anniversary 🎉</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Happy Anniversary — Celebrating Forever & Always</title>
+  <meta name="description" content="An Apple-grade luxury celebration card for wedding anniversaries with dynamic coming-year milestone counters, realistic physics fireworks, and Liquid Glass Cupertino aesthetics." />
+  
+  <!-- Apple & OpenGraph Meta -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#0B0D17" />
+  <meta property="og:title" content="Happy Anniversary 🎉 Celebrating Love Together" />
+  <meta property="og:description" content="Celebrate love and togetherness with interactive realistic fireworks, love counter, and personalized greetings." />
+  <meta property="og:type" content="website" />
+
+  <!-- Premium Typography: Apple SF Pro fallback + Cormorant Garamond & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-    }
-    
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap');
-    
+    /* -------------------------------------------------------------
+       APPLE LIQUID GLASS & SYSTEM COLOR TOKENS (HIG 2025/2026)
+       ------------------------------------------------------------- */
     :root {
-      --neon-pink: #ff00ff;
-      --neon-blue: #00ffff;
-      --neon-green: #00ff00;
-      --neon-purple: #9d00ff;
-      --neon-yellow: #fff700;
-      --neon-orange: #ff8c00;
+      --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", system-ui, sans-serif;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Plus Jakarta Sans", system-ui, sans-serif;
+
+      /* Apple Dynamic Accent Colors */
+      --rose-500: #FF3366;
+      --rose-400: #FB7185;
+      --rose-gold: #F4A7B9;
+      --gold-300: #FDE047;
+      --gold-400: #FACC15;
+      --gold-500: #EAB308;
+      --champagne: #FBEBD4;
+      --champagne-gold: #E5C388;
+      --violet-500: #A855F7;
+      --sky-400: #38BDF8;
+
+      /* Cupertino Liquid Glass (Dark Obsidian Theme - Default) */
+      --bg-canvas: #090B10;
+      --glass-surface: rgba(255, 255, 255, 0.07);
+      --glass-surface-elevated: rgba(255, 255, 255, 0.12);
+      --glass-surface-hover: rgba(255, 255, 255, 0.16);
+      --glass-border: rgba(255, 255, 255, 0.14);
+      --glass-border-highlight: rgba(255, 255, 255, 0.35);
+      --glass-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.65), 0 18px 36px -18px rgba(0, 0, 0, 0.7);
+      --card-specular: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.12), transparent 40%);
+      
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(255, 255, 255, 0.72);
+      --text-tertiary: rgba(255, 255, 255, 0.45);
+      
+      --mesh-1: rgba(255, 51, 102, 0.22);
+      --mesh-2: rgba(168, 85, 247, 0.18);
+      --mesh-3: rgba(234, 179, 8, 0.14);
+      --mesh-4: rgba(14, 165, 233, 0.16);
+
+      --ease-apple-spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
-    body, html {
-      height: 100%;
-      overflow-x: hidden;
-      font-family: 'Poppins', sans-serif;
-      color: white;
-      text-align: center;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+
+    /* Light Theme (Apple Champagne Silk) */
+    body.light-theme {
+      --bg-canvas: #FAF8F5;
+      --glass-surface: rgba(255, 255, 255, 0.72);
+      --glass-surface-elevated: rgba(255, 255, 255, 0.88);
+      --glass-surface-hover: rgba(255, 255, 255, 0.95);
+      --glass-border: rgba(0, 0, 0, 0.08);
+      --glass-border-highlight: rgba(255, 255, 255, 0.8);
+      --glass-shadow: 0 25px 50px -12px rgba(180, 140, 120, 0.2), 0 10px 25px -10px rgba(0, 0, 0, 0.05);
+      --card-specular: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.6), transparent 40%);
+
+      --text-primary: #1C1917;
+      --text-secondary: rgba(28, 25, 23, 0.75);
+      --text-tertiary: rgba(28, 25, 23, 0.48);
+
+      --mesh-1: rgba(255, 182, 193, 0.35);
+      --mesh-2: rgba(243, 232, 255, 0.4);
+      --mesh-3: rgba(254, 243, 199, 0.45);
+      --mesh-4: rgba(224, 242, 254, 0.35);
     }
-    
-    video#bgVideo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.7;
-      mix-blend-mode: screen;
-    }
-    
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
-      z-index: 0;
-    }
-    
-    .content {
-      position: relative;
-      z-index: 2;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    h1 { 
-      font-family: 'Pacifico', cursive;
-      font-size: clamp(2rem, 5vw, 3.5rem); 
-      margin-bottom: 0.5em;
-      text-shadow: 0 0 10px var(--neon-pink), 
-                   0 0 20px var(--neon-pink),
-                   0 0 30px var(--neon-pink);
-      animation: neonGlow 3s ease-in-out infinite alternate;
-      color: #fff;
-    }
-    
-    p { 
-      font-size: clamp(1rem, 2.5vw, 1.5rem); 
-      margin-bottom: 1.5em;
-      text-shadow: 0 0 5px var(--neon-blue);
-      color: #fff;
-    }
-    
-    .input-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 2rem;
-    }
-    
-    input {
-      padding: 12px 15px;
-      margin: 0 auto;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 25px;
-      border: 2px solid rgba(255,255,255,0.3);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    }
-    
-    input:focus {
-      outline: none;
-      border-color: var(--neon-blue);
-      box-shadow: 0 0 15px var(--neon-blue);
-    }
-    
-    input::placeholder {
-      color: rgba(255,255,255,0.7);
-    }
-    
-    .btn-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 1.5rem;
-    }
-    
-    .btn {
+
+    /* -------------------------------------------------------------
+       GLOBAL RESET & RESILIENT BASE
+       ------------------------------------------------------------- */
+    *, *::before, *::after {
       margin: 0;
-      cursor: pointer;
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 50px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      min-width: 180px;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to bottom right,
-        rgba(255,255,255,0.3),
-        rgba(255,255,255,0)
-      );
-      transform: rotate(45deg);
-      transition: all 0.5s ease;
-      opacity: 0;
-    }
-    
-    .btn:hover::before {
-      animation: shine 1.5s;
-    }
-    
-    .music-control {
-      border-color: var(--neon-green);
-      box-shadow: 0 0 10px var(--neon-green);
-    }
-    
-    .music-control:hover {
-      background: rgba(0, 255, 0, 0.1);
-      box-shadow: 0 0 20px var(--neon-green);
-    }
-    
-    .whatsapp-share {
-      border-color: var(--neon-yellow);
-      box-shadow: 0 0 10px var(--neon-yellow);
-    }
-    
-    .whatsapp-share:hover {
-      background: rgba(255, 247, 0, 0.1);
-      box-shadow: 0 0 20px var(--neon-yellow);
-    }
-    
-    .update-btn {
-      border-color: var(--neon-purple);
-      box-shadow: 0 0 10px var(--neon-purple);
-    }
-    
-    .update-btn:hover {
-      background: rgba(157, 0, 255, 0.1);
-      box-shadow: 0 0 20px var(--neon-purple);
-    }
-    
-    .neon-icon {
-      filter: drop-shadow(0 0 5px currentColor);
-      transition: all 0.3s ease;
-    }
-    
-    canvas#fireworks {
-      position: fixed;
-      top: 0;
-      left: 0;
+
+    html, body {
       width: 100%;
-      height: 100%;
+      min-height: 100%;
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-text);
+      overflow-x: hidden;
+      position: relative;
+      transition: background-color 0.6s var(--ease-smooth), color 0.6s var(--ease-smooth);
+    }
+
+    /* -------------------------------------------------------------
+       LIVING AURORA MESH BACKGROUND
+       ------------------------------------------------------------- */
+    .aurora-background {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .aurora-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.85;
+      will-change: transform;
+      animation: floatAurora 18s ease-in-out infinite alternate;
+    }
+
+    .aurora-orb-1 {
+      top: -10%;
+      left: 15%;
+      width: 55vw;
+      height: 55vw;
+      max-width: 650px;
+      max-height: 650px;
+      background: radial-gradient(circle, var(--mesh-1) 0%, transparent 70%);
+      animation-duration: 22s;
+    }
+
+    .aurora-orb-2 {
+      bottom: -15%;
+      right: 10%;
+      width: 60vw;
+      height: 60vw;
+      max-width: 750px;
+      max-height: 750px;
+      background: radial-gradient(circle, var(--mesh-2) 0%, transparent 70%);
+      animation-duration: 26s;
+      animation-delay: -5s;
+    }
+
+    .aurora-orb-3 {
+      top: 35%;
+      right: 25%;
+      width: 45vw;
+      height: 45vw;
+      max-width: 500px;
+      max-height: 500px;
+      background: radial-gradient(circle, var(--mesh-3) 0%, transparent 70%);
+      animation-duration: 19s;
+      animation-delay: -10s;
+    }
+
+    .aurora-orb-4 {
+      bottom: 20%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+      max-width: 550px;
+      max-height: 550px;
+      background: radial-gradient(circle, var(--mesh-4) 0%, transparent 70%);
+      animation-duration: 24s;
+      animation-delay: -14s;
+    }
+
+    @keyframes floatAurora {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(40px, -30px, 0) scale(1.08); }
+      100% { transform: translate3d(-30px, 35px, 0) scale(0.95); }
+    }
+
+    /* Ambient Stardust Grid Layer */
+    .stardust-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.25;
       pointer-events: none;
       z-index: 1;
     }
-    
-    .heart {
-      position: absolute;
+
+    body.light-theme .stardust-overlay {
+      background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+      opacity: 0.35;
+    }
+
+    /* Fullscreen High-Performance Fireworks Canvas */
+    canvas#fireworksCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
-      animation: float 6s ease-in-out infinite;
-      filter: drop-shadow(0 0 5px var(--neon-pink));
-      opacity: 0.8;
+      z-index: 2;
     }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(5deg); }
+
+    /* Floating Heart Particles Layer */
+    #heartsContainer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      overflow: hidden;
     }
-    
-    @keyframes neonGlow {
-      0%, 100% {
-        text-shadow: 0 0 10px var(--neon-pink), 
-                     0 0 20px var(--neon-pink),
-                     0 0 30px var(--neon-pink);
+
+    .ambient-heart {
+      position: absolute;
+      user-select: none;
+      pointer-events: auto;
+      cursor: pointer;
+      will-change: transform, opacity;
+      animation: riseHeart var(--duration, 9s) linear forwards;
+      filter: drop-shadow(0 4px 12px rgba(255, 51, 102, 0.3));
+      transition: transform 0.2s var(--ease-apple-spring);
+    }
+
+    .ambient-heart:hover {
+      transform: scale(1.4) !important;
+    }
+
+    @keyframes riseHeart {
+      0% {
+        transform: translateY(105vh) translateX(0) scale(0.6) rotate(0deg);
+        opacity: 0;
       }
-      25% {
-        text-shadow: 0 0 10px var(--neon-blue), 
-                     0 0 20px var(--neon-blue),
-                     0 0 30px var(--neon-blue);
+      10% {
+        opacity: var(--max-opacity, 0.85);
       }
-      50% {
-        text-shadow: 0 0 10px var(--neon-green), 
-                     0 0 20px var(--neon-green),
-                     0 0 30px var(--neon-green);
+      90% {
+        opacity: var(--max-opacity, 0.85);
       }
-      75% {
-        text-shadow: 0 0 10px var(--neon-purple), 
-                     0 0 20px var(--neon-purple),
-                     0 0 30px var(--neon-purple);
+      100% {
+        transform: translateY(-10vh) translateX(var(--drift-x, 40px)) scale(1.05) rotate(var(--rot, 25deg));
+        opacity: 0;
       }
     }
-    
-    @keyframes shine {
-      0% { opacity: 0; transform: rotate(45deg) translate(-30%, -30%); }
-      20% { opacity: 1; }
-      100% { opacity: 0; transform: rotate(45deg) translate(30%, 30%); }
+
+    /* -------------------------------------------------------------
+       APPLE NAVIGATION BAR (FLOATING GLASS CAPSULE)
+       ------------------------------------------------------------- */
+    .apple-nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 36px);
+      max-width: 980px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px 0 20px;
+      z-index: 50;
+      border-radius: 9999px;
+      background: var(--glass-surface);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.35);
+      transition: all 0.3s var(--ease-smooth);
     }
-    
-    @media (max-width: 768px) {
-      .content {
-        padding: 15px;
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose-500), var(--gold-400));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 10px rgba(255, 51, 102, 0.35);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Apple Glass Pill Buttons */
+    .glass-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 9999px;
+      background: var(--glass-surface-elevated);
+      border: 1px solid var(--glass-border);
+      color: var(--text-primary);
+      font-family: var(--font-text);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      text-decoration: none;
+      outline: none;
+      transition: all 0.25s var(--ease-apple-spring);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-pill-btn:hover {
+      background: var(--glass-surface-hover);
+      border-color: var(--glass-border-highlight);
+      transform: translateY(-1px);
+    }
+
+    .glass-pill-btn:active {
+      transform: scale(0.96);
+    }
+
+    .glass-pill-btn.primary {
+      background: linear-gradient(135deg, var(--rose-500), #E11D48);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.35);
+    }
+
+    .glass-pill-btn.primary:hover {
+      background: linear-gradient(135deg, #FF4575, #BE123C);
+      box-shadow: 0 6px 20px rgba(244, 63, 94, 0.5);
+    }
+
+    .glass-pill-btn.icon-only {
+      width: 36px;
+      padding: 0;
+      justify-content: center;
+    }
+
+    /* Soundwave Audio Indicator */
+    .soundwave-box {
+      display: flex;
+      align-items: center;
+      gap: 2.5px;
+      height: 14px;
+    }
+
+    .soundwave-bar {
+      width: 2.5px;
+      height: 100%;
+      background-color: currentColor;
+      border-radius: 2px;
+      transform-origin: bottom;
+      transform: scaleY(0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .soundwave-box.playing .soundwave-bar:nth-child(1) { animation: wave 1s ease-in-out infinite alternate; }
+    .soundwave-box.playing .soundwave-bar:nth-child(2) { animation: wave 0.8s ease-in-out 0.2s infinite alternate; }
+    .soundwave-box.playing .soundwave-bar:nth-child(3) { animation: wave 1.2s ease-in-out 0.4s infinite alternate; }
+    .soundwave-box.playing .soundwave-bar:nth-child(4) { animation: wave 0.9s ease-in-out 0.1s infinite alternate; }
+
+    @keyframes wave {
+      0% { transform: scaleY(0.2); }
+      100% { transform: scaleY(1); }
+    }
+
+    /* -------------------------------------------------------------
+       MAIN STAGE & LIQUID GLASS CARD CONTAINER
+       ------------------------------------------------------------- */
+    .stage-wrapper {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 95px 18px 40px 18px;
+    }
+
+    /* 3D Perspective Card Canvas */
+    .card-scene {
+      perspective: 1200px;
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .celebration-card {
+      position: relative;
+      border-radius: 36px;
+      background: var(--glass-surface);
+      backdrop-filter: blur(32px) saturate(200%);
+      -webkit-backdrop-filter: blur(32px) saturate(200%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      padding: clamp(28px, 5vw, 52px) clamp(20px, 4vw, 44px);
+      text-align: center;
+      transform-style: preserve-3d;
+      transition: transform 0.4s var(--ease-apple-spring), box-shadow 0.4s var(--ease-apple-spring);
+      overflow: hidden;
+    }
+
+    /* Specular Light Sheen */
+    .celebration-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--card-specular);
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Top Rim Specular Highlight */
+    .celebration-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--glass-border-highlight), transparent);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* -------------------------------------------------------------
+       HEADER BADGE & EDITORIAL TYPOGRAPHY
+       ------------------------------------------------------------- */
+    .milestone-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      background: rgba(255, 51, 102, 0.12);
+      border: 1px solid rgba(255, 51, 102, 0.28);
+      color: var(--rose-400);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 15px rgba(255, 51, 102, 0.15);
+      animation: gentlePulse 3.5s ease-in-out infinite;
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); opacity: 0.95; }
+      50% { transform: scale(1.03); opacity: 1; }
+    }
+
+    .celebration-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 6.2vw, 4.4rem);
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F5D061 50%, #FF8FA3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 30px rgba(245, 208, 97, 0.2);
+    }
+
+    body.light-theme .celebration-headline {
+      background: linear-gradient(135deg, #1C1917 0%, #B45309 50%, #E11D48 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+    }
+
+    .couple-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .couple-title .heart-glyph {
+      color: var(--rose-500);
+      display: inline-block;
+      animation: heartbeat 1.8s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.22); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.18); }
+      70% { transform: scale(1); }
+    }
+
+    .milestone-tradition-tag {
+      display: inline-block;
+      font-size: 0.95rem;
+      color: var(--champagne-gold);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 26px;
+    }
+
+    body.light-theme .milestone-tradition-tag {
+      color: #92400E;
+    }
+
+    /* -------------------------------------------------------------
+       APPLE BENTO GRID: LIVE TOGETHERNESS COUNTER
+       ------------------------------------------------------------- */
+    .togetherness-section {
+      margin: 26px auto 32px auto;
+      max-width: 680px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .bento-counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .counter-tile {
+      background: var(--glass-surface-elevated);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 16px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s var(--ease-apple-spring), border-color 0.25s ease;
+    }
+
+    .counter-tile:hover {
+      transform: translateY(-2px);
+      border-color: var(--glass-border-highlight);
+    }
+
+    .counter-value {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .counter-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* -------------------------------------------------------------
+       POLAROID MEMORY KEEPSAKE & HEARTFELT MESSAGE
+       ------------------------------------------------------------- */
+    .keepsake-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 30px;
+    }
+
+    .polaroid-frame {
+      width: 170px;
+      background: #FFFFFF;
+      padding: 10px 10px 22px 10px;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 3px 10px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2.5deg);
+      transition: transform 0.35s var(--ease-apple-spring);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .polaroid-frame:hover {
+      transform: rotate(0deg) scale(1.06);
+    }
+
+    .polaroid-clip {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 16px;
+      background: linear-gradient(180deg, #E5C388, #C59A45);
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 4;
+    }
+
+    .polaroid-image-box {
+      width: 100%;
+      height: 150px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1A1C29, #312E55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .polaroid-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .polaroid-caption {
+      margin-top: 10px;
+      font-family: var(--font-serif);
+      font-size: 0.88rem;
+      color: #333333;
+      font-style: italic;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .romantic-quote-box {
+      max-width: 620px;
+      padding: 0 10px;
+    }
+
+    .romantic-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2.6vw, 1.55rem);
+      font-style: italic;
+      line-height: 1.48;
+      color: var(--text-secondary);
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .anniversary-date-stamp {
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* -------------------------------------------------------------
+       COMING YEARS COUNTDOWN CHIP
+       ------------------------------------------------------------- */
+    .next-anniversary-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      background: var(--glass-surface-elevated);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .next-anniversary-chip strong {
+      color: var(--gold-400);
+      font-weight: 600;
+    }
+
+    body.light-theme .next-anniversary-chip strong {
+      color: #B45309;
+    }
+
+    /* -------------------------------------------------------------
+       PRIMARY CALL-TO-ACTION BUTTONS
+       ------------------------------------------------------------- */
+    .card-actions-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      height: 48px;
+      padding: 0 24px;
+      border-radius: 9999px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+      outline: none;
+      transition: all 0.28s var(--ease-apple-spring);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .action-btn:active {
+      transform: scale(0.96);
+    }
+
+    .action-btn.btn-celebrate {
+      background: linear-gradient(135deg, var(--rose-500), #E11D48);
+      color: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(244, 63, 94, 0.45);
+    }
+
+    .action-btn.btn-celebrate:hover {
+      background: linear-gradient(135deg, #FF4575, #BE123C);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(244, 63, 94, 0.6);
+    }
+
+    .action-btn.btn-whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+    }
+
+    .action-btn.btn-whatsapp:hover {
+      background: #22C55E;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    .action-btn.btn-customize {
+      background: var(--glass-surface-elevated);
+      border-color: var(--glass-border);
+      color: var(--text-primary);
+    }
+
+    .action-btn.btn-customize:hover {
+      background: var(--glass-surface-hover);
+      border-color: var(--glass-border-highlight);
+      transform: translateY(-2px);
+    }
+
+    .action-btn.btn-download {
+      background: var(--glass-surface-elevated);
+      border-color: var(--glass-border);
+      color: var(--text-primary);
+    }
+
+    .action-btn.btn-download:hover {
+      background: var(--glass-surface-hover);
+      border-color: var(--glass-border-highlight);
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       APPLE SHEET / MODAL DIALOG (CUSTOMIZATION SUITE)
+       ------------------------------------------------------------- */
+    .sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s var(--ease-smooth);
+    }
+
+    .sheet-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sheet-modal {
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: var(--bg-canvas);
+      border: 1px solid var(--glass-border-highlight);
+      border-radius: 32px;
+      padding: 32px 26px;
+      box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.8);
+      transform: translateY(40px) scale(0.96);
+      transition: transform 0.38s var(--ease-apple-spring);
+    }
+
+    .sheet-backdrop.open .sheet-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .sheet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .sheet-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .sheet-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--glass-surface-hover);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .sheet-close-btn:hover {
+      color: var(--text-primary);
+      transform: scale(1.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 16px;
+      background: var(--glass-surface-elevated);
+      border: 1px solid var(--glass-border);
+      color: var(--text-primary);
+      font-family: var(--font-text);
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--rose-500);
+      box-shadow: 0 0 0 4px rgba(255, 51, 102, 0.18);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    /* Wish presets tags */
+    .presets-label {
+      font-size: 0.76rem;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+
+    .presets-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+
+    .preset-chip {
+      padding: 5px 12px;
+      border-radius: 9999px;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      font-size: 0.76rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-chip:hover {
+      background: var(--glass-surface-hover);
+      color: var(--text-primary);
+      border-color: var(--glass-border-highlight);
+    }
+
+    .sheet-footer {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .sheet-footer .action-btn {
+      flex: 1;
+    }
+
+    /* -------------------------------------------------------------
+       APPLE TOAST NOTIFICATION
+       ------------------------------------------------------------- */
+    .apple-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      background: rgba(28, 28, 30, 0.94);
+      color: #FFFFFF;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 9999px;
+      padding: 10px 22px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      z-index: 200;
+      transition: transform 0.35s var(--ease-apple-spring), opacity 0.35s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .apple-toast.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE CRAFT
+       ------------------------------------------------------------- */
+    @media (max-width: 640px) {
+      .apple-nav {
+        top: 10px;
+        width: calc(100% - 20px);
+        padding: 0 10px 0 14px;
       }
-      
-      .btn {
-        padding: 10px 20px;
-        min-width: 160px;
+
+      .nav-brand span {
+        display: none;
       }
-      
-      .btn-container {
+
+      .bento-counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .card-actions-grid {
         flex-direction: column;
-        align-items: center;
+        width: 100%;
+      }
+
+      .action-btn {
+        width: 100%;
+      }
+
+      .stage-wrapper {
+        padding-top: 85px;
       }
     }
-    
-    @media (max-width: 480px) {
-      input {
-        width: 100%;
+
+    /* Reduced Motion Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .celebration-card {
+        transform: none !important;
       }
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop id="bgVideo">
-    <source src="https://www.videvo.net/videvo_files/converted/2017_01/preview/170104_Fireworks_07_1080p.mp465611.webm" type="video/webm">
-    Your browser does not support HTML5 video.
-  </video>
-  <div class="overlay"></div>
 
-  <canvas id="fireworks"></canvas>
+  <!-- Ambient Living Aurora Mesh -->
+  <div class="aurora-background" aria-hidden="true">
+    <div class="aurora-orb aurora-orb-1"></div>
+    <div class="aurora-orb aurora-orb-2"></div>
+    <div class="aurora-orb aurora-orb-3"></div>
+    <div class="aurora-orb aurora-orb-4"></div>
+  </div>
 
-  <div class="content">
-    <!-- Input area -->
-    <div class="input-container">
-      <input id="nameInput" placeholder="🎉 Couple's Names (e.g., Amit & Neha)" />
-      <input id="msgInput" placeholder="✍️ Personal Message (e.g., Wishing you...)" />
-      <button class="btn update-btn" onclick="updateContent()">
-        <i class="fas fa-sync-alt neon-icon" style="color: var(--neon-purple);"></i> Update Message
+  <!-- Ambient Stardust Overlay -->
+  <div class="stardust-overlay" aria-hidden="true"></div>
+
+  <!-- Interactive Realistic Fireworks & Sparklers Canvas -->
+  <canvas id="fireworksCanvas"></canvas>
+
+  <!-- Floating Glass Hearts Container -->
+  <div id="heartsContainer" aria-hidden="true"></div>
+
+  <!-- Floating Apple Glass Capsule Navigation -->
+  <nav class="apple-nav">
+    <a href="#" class="nav-brand" aria-label="Anniversary Celebration">
+      <div class="brand-icon">
+        <i class="fas fa-heart"></i>
+      </div>
+      <span>Happy Anniversary</span>
+    </a>
+
+    <div class="nav-actions">
+      <!-- Romantic Web Audio Pill -->
+      <button id="audioToggleBtn" class="glass-pill-btn" aria-label="Toggle Romantic Soundtrack" onclick="toggleRomanticAudio()">
+        <div class="soundwave-box" id="audioSoundwave">
+          <div class="soundwave-bar"></div>
+          <div class="soundwave-bar"></div>
+          <div class="soundwave-bar"></div>
+          <div class="soundwave-bar"></div>
+        </div>
+        <span id="audioStatusText">Melody</span>
+      </button>
+
+      <!-- Theme Switcher -->
+      <button class="glass-pill-btn icon-only" onclick="toggleAppleTheme()" aria-label="Toggle Theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+
+      <!-- Customize Card Modal Trigger -->
+      <button class="glass-pill-btn primary" onclick="openCustomizeSheet()">
+        <i class="fas fa-pen-fancy"></i>
+        <span>Personalize</span>
       </button>
     </div>
+  </nav>
 
-    <!-- Display area -->
-    <h1 id="nameDisplay">Amit & Neha's Anniversary! <i class="fas fa-heart" style="color: var(--neon-pink);"></i></h1>
-    <p id="msgDisplay">Wishing you a lifetime of love and laughter together! <i class="fas fa-glass-cheers" style="color: var(--neon-yellow);"></i></p>
+  <!-- Main Stage / 3D Perspective Centerpiece -->
+  <main class="stage-wrapper">
+    <div class="card-scene">
+      <article class="celebration-card" id="mainCelebrationCard">
+        <div class="card-content">
+          
+          <!-- Top Milestone Badge -->
+          <div class="milestone-pill" id="milestonePill">
+            <i class="fas fa-sparkles"></i>
+            <span id="milestoneBadgeText">Celebrating 5 Glorious Years</span>
+          </div>
 
-    <div class="btn-container">
-      <button class="btn music-control" onclick="toggleMusic()">
-        <i class="fas fa-music neon-icon" style="color: var(--neon-green);"></i> 
-        <span class="music-text">Play Music</span>
-      </button>
-      <a id="whatsappShare" class="btn whatsapp-share" target="_blank">
-        <i class="fab fa-whatsapp neon-icon" style="color: var(--neon-yellow);"></i> Share on WhatsApp
-      </a>
+          <!-- Dynamic Title & Milestone -->
+          <h1 class="celebration-headline" id="milestoneHeadline">5th Wedding Anniversary</h1>
+          
+          <div class="couple-title">
+            <span id="coupleNamesDisplay">Amit & Neha</span>
+            <span class="heart-glyph"><i class="fas fa-heart"></i></span>
+          </div>
+
+          <div class="milestone-tradition-tag" id="traditionMilestoneTag">
+            🌳 The Wood Anniversary • Rooted in Deep Love
+          </div>
+
+          <!-- Polaroid Keepsake Photo & Quote Frame -->
+          <div class="keepsake-wrapper">
+            <div class="polaroid-frame" onclick="openCustomizeSheet()" title="Click to change photo">
+              <div class="polaroid-clip"></div>
+              <div class="polaroid-image-box">
+                <img id="keepsakePhoto" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80" alt="Couple Keepsake" />
+              </div>
+              <div class="polaroid-caption" id="polaroidCaptionText">Forever & Always ❤️</div>
+            </div>
+
+            <div class="romantic-quote-box">
+              <p class="romantic-quote" id="personalMessageDisplay">
+                "May your journey together continue to be blessed with eternal love, radiant joy, and endless memories."
+              </p>
+              <div class="anniversary-date-stamp" id="marriageDateStamp">
+                Together Since October 24, 2021
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Bento Togetherness Counter (Auto-computed in real time) -->
+          <section class="togetherness-section" aria-label="Time lived together">
+            <div class="section-label">Love Journey Milestone Counter</div>
+            <div class="bento-counter-grid">
+              <div class="counter-tile">
+                <span class="counter-value" id="countYears">5</span>
+                <span class="counter-label">Years</span>
+              </div>
+              <div class="counter-tile">
+                <span class="counter-value" id="countMonths">0</span>
+                <span class="counter-label">Months</span>
+              </div>
+              <div class="counter-tile">
+                <span class="counter-value" id="countDays">0</span>
+                <span class="counter-label">Days</span>
+              </div>
+              <div class="counter-tile">
+                <span class="counter-value" id="countSeconds">00</span>
+                <span class="counter-label">Seconds</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Automatic Coming Years Countdown Chip -->
+          <div class="next-anniversary-chip" id="comingYearChip">
+            <i class="fas fa-calendar-heart" style="color: var(--rose-400);"></i>
+            <span id="comingYearCountdownText">Next milestone in: calculating...</span>
+          </div>
+
+          <!-- Interactive Action Buttons -->
+          <div class="card-actions-grid">
+            <button class="action-btn btn-celebrate" onclick="triggerGrandCelebration()">
+              <i class="fas fa-sparkles"></i> Celebrate Love
+            </button>
+            <a id="whatsappShareBtn" class="action-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp"></i> Share on WhatsApp
+            </a>
+            <button class="action-btn btn-customize" onclick="copyPersonalizedLink()">
+              <i class="fas fa-link"></i> Copy Link
+            </button>
+            <button class="action-btn btn-download" onclick="exportCardSnapshot()">
+              <i class="fas fa-camera"></i> Save Card
+            </button>
+          </div>
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Personalization Apple Sheet / Modal -->
+  <div class="sheet-backdrop" id="customizeSheet" onclick="closeCustomizeSheetOnBackdrop(event)">
+    <div class="sheet-modal" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="sheet-header">
+        <h2 class="sheet-title" id="sheetTitle">Personalize Anniversary Card</h2>
+        <button class="sheet-close-btn" onclick="closeCustomizeSheet()" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <form id="customizeForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="coupleNamesInput">Couple's Names</label>
+          <input type="text" id="coupleNamesInput" class="form-input" placeholder="e.g., Amit & Neha" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="anniversaryDateInput">Anniversary / Wedding Date</label>
+          <input type="date" id="anniversaryDateInput" class="form-input" required />
+          <div style="font-size: 0.74rem; color: var(--text-tertiary); margin-top: 5px;">
+            The system automatically calculates the current milestone and future years forever!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="messageInput">Heartfelt Message</label>
+          <div class="presets-label">Quick Romantic Wishes:</div>
+          <div class="presets-row">
+            <button type="button" class="preset-chip" onclick="applyPresetWish(0)">Forever Love</button>
+            <button type="button" class="preset-chip" onclick="applyPresetWish(1)">Soulmates</button>
+            <button type="button" class="preset-chip" onclick="applyPresetWish(2)">Silver / Gold</button>
+            <button type="button" class="preset-chip" onclick="applyPresetWish(3)">Playful & Sweet</button>
+          </div>
+          <textarea id="messageInput" class="form-textarea" placeholder="Write your heartfelt message..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="photoUrlInput">Keepsake Photo URL (Optional)</label>
+          <input type="url" id="photoUrlInput" class="form-input" placeholder="https://example.com/photo.jpg" />
+        </div>
+
+        <div class="sheet-footer">
+          <button type="button" class="action-btn btn-customize" onclick="closeCustomizeSheet()">Cancel</button>
+          <button type="submit" class="action-btn btn-celebrate">Update & Celebrate</button>
+        </div>
+      </form>
     </div>
   </div>
 
-  <audio id="bgMusic" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
-    Your browser does not support the audio tag.
-  </audio>
+  <!-- Toast Notification -->
+  <div class="apple-toast" id="appleToast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle" style="color: var(--rose-400);"></i>
+    <span id="toastMessage">Card updated successfully!</span>
+  </div>
 
+  <!-- -------------------------------------------------------------
+       CORE ENGINE: ANNIVERSARY MILESTONES, AUDIO & PARTICLES
+       ------------------------------------------------------------- -->
   <script>
-    let isPlaying = false;
-    const music = document.getElementById('bgMusic');
-    const musicBtn = document.querySelector('.music-control');
-    const musicText = document.querySelector('.music-text');
+    /* =============================================================
+       1. STATE & TRADITIONAL ANNIVERSARY MILESTONE TABLE
+       ============================================================= */
+    const state = {
+      names: "Amit & Neha",
+      date: "2021-10-24", // Default wedding date
+      message: "May your journey together continue to be blessed with eternal love, radiant joy, and endless memories.",
+      photo: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80",
+      theme: "dark"
+    };
 
-    function toggleMusic() {
-      if (isPlaying) {
-        music.pause();
-        musicText.textContent = 'Play Music';
-        musicBtn.querySelector('i').className = 'fas fa-music neon-icon';
-      } else {
-        music.play()
-          .then(() => {
-            musicText.textContent = 'Pause Music';
-            musicBtn.querySelector('i').className = 'fas fa-pause neon-icon';
-          })
-          .catch(error => {
-            console.log('Audio playback failed:', error);
-            alert('Please interact with the page first to enable audio');
-          });
-      }
-      isPlaying = !isPlaying;
-      
-      // Add pulse effect
-      musicBtn.style.transform = 'scale(1.1)';
-      setTimeout(() => {
-        musicBtn.style.transform = '';
-      }, 300);
-    }
+    // Traditional Wedding Anniversary Themes
+    const MILESTONE_TRADITIONS = {
+      1: { name: "Paper", emoji: "📄", desc: "Modest and fragile, written with new love." },
+      2: { name: "Cotton", emoji: "☁️", desc: "Warm and intertwined like woven threads." },
+      3: { name: "Leather", emoji: "👞", desc: "Resilient and sheltering from all storms." },
+      4: { name: "Fruit & Flowers", emoji: "🌸", desc: "Blossoming with sweetness and joy." },
+      5: { name: "Wood", emoji: "🌳", desc: "Rooted deep, standing strong together." },
+      6: { name: "Iron", emoji: "⛓️", desc: "Unbreakable bond forged in commitment." },
+      7: { name: "Wool", emoji: "🧶", desc: "Comfort, warmth, and enduring care." },
+      8: { name: "Bronze", emoji: "🥉", desc: "Blended strength and golden harmony." },
+      9: { name: "Pottery", emoji: "🏺", desc: "Carefully molded with love and patience." },
+      10: { name: "Tin & Aluminum", emoji: "🪙", desc: "Pliant, radiant, and rust-free strength." },
+      15: { name: "Crystal", emoji: "🔮", desc: "Luminous clarity and transparent devotion." },
+      20: { name: "China & Porcelain", emoji: "🫖", desc: "Rare, exquisite beauty cherished over time." },
+      25: { name: "Silver Jubilee", emoji: "🥈✨", desc: "A quarter century of pure devotion and grace." },
+      30: { name: "Pearl", emoji: "🦪", desc: "Cultivated through patience and deep beauty." },
+      35: { name: "Coral", emoji: "🪸", desc: "Vibrant ecosystem of family, joy, and peace." },
+      40: { name: "Ruby", emoji: "💎❤️", desc: "An eternal fiery passion that never dims." },
+      45: { name: "Sapphire", emoji: "💙", desc: "Celestial loyalty, honesty, and serenity." },
+      50: { name: "Golden Jubilee", emoji: "👑🥇", desc: "Half a century of timeless, legendary romance." },
+      60: { name: "Diamond Jubilee", emoji: "💎✨", desc: "The ultimate invincible brilliance of true love." }
+    };
 
-    function updateContent() {
-      const name = document.getElementById('nameInput').value.trim() || "Amit & Neha";
-      const msg = document.getElementById('msgInput').value.trim() || "Wishing you a lifetime of love and laughter together!";
-
-      document.getElementById('nameDisplay').innerHTML = `${name}'s Anniversary! <i class="fas fa-heart" style="color: var(--neon-pink);"></i>`;
-      document.getElementById('msgDisplay').innerHTML = `${msg} <i class="fas fa-glass-cheers" style="color: var(--neon-yellow);"></i>`;
-
-      const shareText = `🎉 Celebrate love with ${name}! 💖\n"${msg}"\nCheck out our anniversary page: ${window.location.href}`;
-      document.getElementById('whatsappShare').href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
-      
-      // Add confirmation effect
-      const btn = document.querySelector('.update-btn');
-      btn.innerHTML = '<i class="fas fa-check neon-icon" style="color: var(--neon-green);"></i> Updated!';
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-sync-alt neon-icon" style="color: var(--neon-purple);"></i> Update Message';
-      }, 2000);
-    }
-
-    // Set initial WhatsApp link
-    updateContent();
-    
-    // Create floating hearts
-    function createHearts() {
-      const colors = ['var(--neon-pink)', 'var(--neon-blue)', 'var(--neon-green)', 'var(--neon-purple)', 'var(--neon-yellow)'];
-      
-      for (let i = 0; i < 15; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.innerHTML = '<i class="fas fa-heart"></i>';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.top = Math.random() * 100 + 'vh';
-        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-        heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
-        heart.style.animationDelay = (Math.random() * 5) + 's';
-        document.body.appendChild(heart);
-      }
-    }
-    
-    createHearts();
-  </script>
-
-  <!-- Enhanced Fireworks JS -->
-  <script>
-    const canvas = document.getElementById('fireworks');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const fireworks = [];
-    const colors = [
-      '#ff00ff', '#00ffff', '#00ff00', 
-      '#9d00ff', '#fff700', '#ff8c00',
-      '#ff1493', '#00bfff', '#7fff00'
+    const PRESET_WISHES = [
+      "Wishing you another year of falling in deeper love with each other every single day. Happy Anniversary!",
+      "To the most beautiful couple: your love story inspires everyone around you. Happy Anniversary!",
+      "Happy Anniversary! May the silver and golden years ahead bring even more joy, laughter, and blessings.",
+      "Another 365 days of love, laughter, and putting up with each other! Happy Anniversary to my favorites!"
     ];
 
-    function randomColor() {
-      return colors[Math.floor(Math.random() * colors.length)];
+    function getOrdinalSuffix(n) {
+      const s = ["th", "st", "nd", "rd"],
+            v = n % 100;
+      return n + (s[(v - 20) % 10] || s[v] || s[0]);
     }
 
-    class Firework {
-      constructor() {
-        this.reset();
+    /* =============================================================
+       2. DYNAMIC COMING-YEARS ENGINE (NEVER GETS OUTDATED)
+       ============================================================= */
+    function computeAnniversaryMilestone(weddingDateStr) {
+      const wedding = new Date(weddingDateStr);
+      const now = new Date();
+
+      if (isNaN(wedding.getTime())) return null;
+
+      // Calculate completed years
+      let yearsCompleted = now.getFullYear() - wedding.getFullYear();
+      const thisYearAnniv = new Date(now.getFullYear(), wedding.getMonth(), wedding.getDate());
+
+      // Compare today with this year's anniversary date
+      const hasPassedThisYear = now >= thisYearAnniv;
+
+      if (!hasPassedThisYear) {
+        yearsCompleted = Math.max(0, yearsCompleted - 1);
       }
-      
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height;
-        this.targetY = Math.random() * canvas.height / 2;
-        this.speed = 2 + Math.random() * 3;
-        this.radius = 3;
-        this.color = randomColor();
-        this.particles = [];
-        this.exploded = false;
+
+      // Next Anniversary date
+      let nextAnniv = new Date(thisYearAnniv);
+      if (hasPassedThisYear) {
+        nextAnniv.setFullYear(now.getFullYear() + 1);
       }
-      
-      explode() {
-        const particleCount = 100 + Math.floor(Math.random() * 50);
-        for (let i = 0; i < particleCount; i++) {
-          const angle = Math.random() * 2 * Math.PI;
-          const speed = Math.random() * 5 + 1;
-          const size = Math.random() * 4 + 1;
-          
-          this.particles.push({
-            x: this.x,
-            y: this.y,
-            vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed,
-            radius: size,
-            color: this.color,
-            life: 100 + Math.random() * 50,
-            friction: 0.95 + Math.random() * 0.03,
-            gravity: 0.1 + Math.random() * 0.1
-          });
-        }
-        this.exploded = true;
+
+      // Milliseconds until next anniversary
+      const diffNext = nextAnniv.getTime() - now.getTime();
+      const nextDays = Math.floor(diffNext / (1000 * 60 * 60 * 24));
+      const nextHours = Math.floor((diffNext / (1000 * 60 * 60)) % 24);
+      const nextMins = Math.floor((diffNext / (1000 * 60)) % 60);
+
+      // Milestone year to display (if today is within celebration window or upcoming)
+      const currentMilestoneNumber = hasPassedThisYear ? yearsCompleted : (yearsCompleted + 1);
+
+      // Traditional tag
+      let tradition = MILESTONE_TRADITIONS[currentMilestoneNumber];
+      if (!tradition) {
+        if (currentMilestoneNumber > 50) tradition = { name: "Diamond Legend", emoji: "💎✨", desc: "A timeless masterpiece of love." };
+        else if (currentMilestoneNumber > 25) tradition = { name: "Golden Era", emoji: "✨", desc: "Decades of shared happiness and devotion." };
+        else tradition = { name: "Enduring Love", emoji: "💖", desc: "Bound together in grace, growing stronger every year." };
       }
-      
-      update() {
-        if (!this.exploded) {
-          this.y -= this.speed;
-          
-          if (this.y <= this.targetY) {
-            this.explode();
-          }
-          
-          return true;
-        } else {
-          for (let i = 0; i < this.particles.length; i++) {
-            const p = this.particles[i];
-            
-            p.vx *= p.friction;
-            p.vy *= p.friction;
-            p.vy += p.gravity;
-            
-            p.x += p.vx;
-            p.y += p.vy;
-            
-            p.life--;
-          }
-          
-          this.particles = this.particles.filter(p => p.life > 0);
-          
-          if (this.particles.length === 0) {
-            this.reset();
-            return false;
-          }
-          
-          return true;
-        }
+
+      // Total time elapsed since wedding
+      const totalElapsedMs = Math.max(0, now.getTime() - wedding.getTime());
+      const totalDays = Math.floor(totalElapsedMs / (1000 * 60 * 60 * 24));
+      const totalMonths = Math.floor(totalDays / 30.4375);
+      const remainMonths = totalMonths % 12;
+      const remainDays = Math.floor(totalDays % 30.4375);
+      const remainSeconds = Math.floor((totalElapsedMs / 1000) % 60);
+
+      return {
+        yearsCompleted,
+        currentMilestoneNumber,
+        tradition,
+        nextDays,
+        nextHours,
+        nextMins,
+        totalDays,
+        remainMonths,
+        remainDays,
+        remainSeconds,
+        weddingDateFormatted: wedding.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+      };
+    }
+
+    function renderUI() {
+      const data = computeAnniversaryMilestone(state.date);
+      if (!data) return;
+
+      const ordinalStr = getOrdinalSuffix(data.currentMilestoneNumber);
+
+      // Top badge
+      document.getElementById('milestoneBadgeText').textContent = 
+        `Celebrating ${data.yearsCompleted > 0 ? data.yearsCompleted : '1'} Glorious Year${data.yearsCompleted === 1 ? '' : 's'}`;
+
+      // Headline
+      document.getElementById('milestoneHeadline').textContent = `${ordinalStr} Wedding Anniversary`;
+
+      // Names
+      document.getElementById('coupleNamesDisplay').textContent = state.names;
+
+      // Tradition tag
+      document.getElementById('traditionMilestoneTag').textContent = 
+        `${data.tradition.emoji} ${data.tradition.name} • ${data.tradition.desc}`;
+
+      // Message
+      document.getElementById('personalMessageDisplay').textContent = `"${state.message}"`;
+
+      // Date stamp
+      document.getElementById('marriageDateStamp').textContent = `Together Since ${data.weddingDateFormatted}`;
+
+      // Photo
+      if (state.photo) {
+        document.getElementById('keepsakePhoto').src = state.photo;
       }
+
+      // Counters
+      document.getElementById('countYears').textContent = data.yearsCompleted;
+      document.getElementById('countMonths').textContent = data.remainMonths;
+      document.getElementById('countDays').textContent = data.remainDays;
+      document.getElementById('countSeconds').textContent = String(data.remainSeconds).padStart(2, '0');
+
+      // Next Milestone Chip
+      if (data.nextDays === 0) {
+        document.getElementById('comingYearCountdownText').innerHTML = 
+          `🎉 <strong>Today is the Special Day!</strong> Happy ${ordinalStr} Anniversary!`;
+      } else {
+        document.getElementById('comingYearCountdownText').innerHTML = 
+          `Next ${getOrdinalSuffix(data.yearsCompleted + 1)} Milestone in: <strong>${data.nextDays}d ${data.nextHours}h ${data.nextMins}m</strong>`;
+      }
+
+      // WhatsApp share link
+      const pageUrl = window.location.href.split('?')[0] + 
+        `?names=${encodeURIComponent(state.names)}&date=${encodeURIComponent(state.date)}&msg=${encodeURIComponent(state.message)}`;
       
-      draw() {
-        if (!this.exploded) {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-          ctx.fillStyle = this.color;
-          ctx.fill();
-          
-          // Trail
-          ctx.beginPath();
-          ctx.moveTo(this.x, this.y);
-          ctx.lineTo(this.x, this.y + 10);
-          ctx.strokeStyle = this.color;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        } else {
-          for (let i = 0; i < this.particles.length; i++) {
-            const p = this.particles[i];
-            
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
-            ctx.fillStyle = p.color;
-            ctx.fill();
-            
-            // Glow effect
-            const gradient = ctx.createRadialGradient(
-              p.x, p.y, 0,
-              p.x, p.y, p.radius * 3
-            );
-            gradient.addColorStop(0, p.color);
-            gradient.addColorStop(1, 'rgba(0,0,0,0)');
-            
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius * 3, 0, 2 * Math.PI);
-            ctx.fillStyle = gradient;
-            ctx.fill();
-          }
-        }
+      const shareMsg = `💖 *Happy ${ordinalStr} Anniversary to ${state.names}!* 🎉\n\n"${state.message}"\n\n✨ Celebrate their love story and view their interactive anniversary card here:\n${pageUrl}`;
+      document.getElementById('whatsappShareBtn').href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMsg)}`;
+    }
+
+    // Start Real-Time Clock
+    setInterval(renderUI, 1000);
+
+    /* =============================================================
+       3. URL QUERY PARAMETERS SUPPORT
+       ============================================================= */
+    function loadUrlParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('names')) state.names = urlParams.get('names');
+      if (urlParams.has('date')) state.date = urlParams.get('date');
+      if (urlParams.has('msg')) state.message = urlParams.get('msg');
+      if (urlParams.has('photo')) state.photo = urlParams.get('photo');
+
+      // Sync form fields
+      document.getElementById('coupleNamesInput').value = state.names;
+      document.getElementById('anniversaryDateInput').value = state.date;
+      document.getElementById('messageInput').value = state.message;
+      if (state.photo) document.getElementById('photoUrlInput').value = state.photo;
+
+      renderUI();
+    }
+
+    function copyPersonalizedLink() {
+      const shareUrl = window.location.origin + window.location.pathname + 
+        `?names=${encodeURIComponent(state.names)}&date=${encodeURIComponent(state.date)}&msg=${encodeURIComponent(state.message)}`;
+      
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          showToast("Personalized Link Copied to Clipboard! 🔗");
+        });
+      } else {
+        const dummy = document.createElement('input');
+        document.body.appendChild(dummy);
+        dummy.value = shareUrl;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        showToast("Personalized Link Copied! 🔗");
       }
     }
 
-    function animate() {
-      requestAnimationFrame(animate);
-      
-      // Clear with semi-transparent for trail effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      // Add new fireworks randomly
-      if (Math.random() < 0.05) {
-        fireworks.push(new Firework());
-      }
-      
-      // Update and draw fireworks
-      for (let i = 0; i < fireworks.length; i++) {
-        if (fireworks[i].update()) {
-          fireworks[i].draw();
-        } else {
-          fireworks.splice(i, 1);
-          i--;
-        }
+    /* =============================================================
+       4. APPLE SHEET MODAL MANAGEMENT
+       ============================================================= */
+    function openCustomizeSheet() {
+      document.getElementById('coupleNamesInput').value = state.names;
+      document.getElementById('anniversaryDateInput').value = state.date;
+      document.getElementById('messageInput').value = state.message;
+      document.getElementById('photoUrlInput').value = state.photo || "";
+      document.getElementById('customizeSheet').classList.add('open');
+    }
+
+    function closeCustomizeSheet() {
+      document.getElementById('customizeSheet').classList.remove('open');
+    }
+
+    function closeCustomizeSheetOnBackdrop(e) {
+      if (e.target.id === 'customizeSheet') closeCustomizeSheet();
+    }
+
+    function applyPresetWish(idx) {
+      if (PRESET_WISHES[idx]) {
+        document.getElementById('messageInput').value = PRESET_WISHES[idx];
       }
     }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const newNames = document.getElementById('coupleNamesInput').value.trim();
+      const newDate = document.getElementById('anniversaryDateInput').value;
+      const newMsg = document.getElementById('messageInput').value.trim();
+      const newPhoto = document.getElementById('photoUrlInput').value.trim();
+
+      if (newNames) state.names = newNames;
+      if (newDate) state.date = newDate;
+      if (newMsg) state.message = newMsg;
+      if (newPhoto) state.photo = newPhoto;
+
+      renderUI();
+      closeCustomizeSheet();
+      showToast("Card updated beautifully! ✨");
+      triggerGrandCelebration();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('appleToast');
+      document.getElementById('toastMessage').textContent = msg;
+      toast.classList.add('visible');
+      setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 3200);
+    }
+
+    function toggleAppleTheme() {
+      const isLight = document.body.classList.toggle('light-theme');
+      const icon = document.getElementById('themeIcon');
+      if (isLight) {
+        icon.className = 'fas fa-sun';
+        showToast('Switched to Champagne Light mode ☀️');
+      } else {
+        icon.className = 'fas fa-moon';
+        showToast('Switched to Obsidian Night mode 🌙');
+      }
+    }
+
+    /* =============================================================
+       5. 3D GYROSCOPIC CARD TILT (APPLE TV / VISIONOS DEPTH)
+       ============================================================= */
+    const card = document.getElementById('mainCelebrationCard');
     
-    animate();
+    document.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
 
-    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const deltaX = (e.clientX - centerX) / (rect.width / 2);
+        const deltaY = (e.clientY - centerY) / (rect.height / 2);
+        
+        // Gentle tilt max 6 degrees
+        const tiltX = -deltaY * 5;
+        const tiltY = deltaX * 5;
+        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+
+    /* =============================================================
+       6. BUILT-IN WEB AUDIO ROMANTIC AMBIENT SOUNDTRACK
+          (100% Guaranteed Offline, No Broken External MP3 Links)
+       ============================================================= */
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let melodyTimer = null;
+
+    function initAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    // Romantic dreamy pentatonic frequencies: Fmaj7 / Cmaj7 harmony
+    const MELODY_NOTES = [
+      261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25
+    ];
+
+    function playSoftBellNote(freq, time, duration = 1.8) {
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      const filter = audioCtx.createBiquadFilter();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, time);
+
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(1200, time);
+      filter.frequency.exponentialRampToValueAtTime(300, time + duration);
+
+      gain.gain.setValueAtTime(0.0001, time);
+      gain.gain.exponentialRampToValueAtTime(0.08, time + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(time);
+      osc.stop(time + duration);
+    }
+
+    function scheduleMelodyLoop() {
+      if (!isAudioPlaying) return;
+      const now = audioCtx.currentTime;
+      // Play a dreamy 3-note arpeggio chord
+      const note1 = MELODY_NOTES[Math.floor(Math.random() * 3)];
+      const note2 = MELODY_NOTES[3 + Math.floor(Math.random() * 3)];
+      const note3 = MELODY_NOTES[4 + Math.floor(Math.random() * 4)];
+
+      playSoftBellNote(note1, now, 2.5);
+      playSoftBellNote(note2, now + 0.35, 2.2);
+      playSoftBellNote(note3, now + 0.7, 2.8);
+
+      melodyTimer = setTimeout(scheduleMelodyLoop, 2200 + Math.random() * 1200);
+    }
+
+    function toggleRomanticAudio() {
+      initAudioContext();
+      const soundwave = document.getElementById('audioSoundwave');
+      const statusText = document.getElementById('audioStatusText');
+
+      if (isAudioPlaying) {
+        isAudioPlaying = false;
+        clearTimeout(melodyTimer);
+        soundwave.classList.remove('playing');
+        statusText.textContent = 'Melody';
+        showToast('Romantic melody paused ⏸️');
+      } else {
+        isAudioPlaying = true;
+        soundwave.classList.add('playing');
+        statusText.textContent = 'Playing';
+        scheduleMelodyLoop();
+        showToast('Playing romantic ambient music 🎵');
+      }
+    }
+
+    /* =============================================================
+       7. REALISTIC DUAL-STAGE FIREWORKS & SPARKLER ENGINE
+       ============================================================= */
+    const canvas = document.getElementById('fireworksCanvas');
+    const ctx = canvas.getContext('2d');
+    let rockets = [];
+    let particles = [];
+
+    function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    });
-    
-    // Initial fireworks
-    for (let i = 0; i < 5; i++) {
-      setTimeout(() => {
-        fireworks.push(new Firework());
-      }, i * 300);
     }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const PALETTES = [
+      ['#FF3366', '#FB7185', '#F4A7B9', '#FFFFFF'], // Rose & Blush
+      ['#FACC15', '#FDE047', '#FEF08A', '#FFFFFF'], // Champagne Gold
+      ['#A855F7', '#C084FC', '#E879F9', '#FFFFFF'], // Twilight Purple
+      ['#38BDF8', '#7DD3FC', '#BAE6FD', '#FFFFFF']  // Cyan Radiance
+    ];
+
+    class Rocket {
+      constructor(targetX, targetY) {
+        this.x = targetX ? (targetX + (Math.random() - 0.5) * 100) : (Math.random() * canvas.width * 0.8 + canvas.width * 0.1);
+        this.y = canvas.height;
+        this.targetY = targetY || (Math.random() * canvas.height * 0.45 + canvas.height * 0.12);
+        this.speed = Math.random() * 4 + 11;
+        this.angle = -Math.PI / 2 + (Math.random() - 0.5) * 0.18;
+        this.vx = Math.cos(this.angle) * this.speed;
+        this.vy = Math.sin(this.angle) * this.speed;
+        this.trail = [];
+        this.exploded = false;
+        this.palette = PALETTES[Math.floor(Math.random() * PALETTES.length)];
+      }
+
+      update() {
+        this.trail.push({ x: this.x, y: this.y, alpha: 1 });
+        if (this.trail.length > 8) this.trail.shift();
+
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += 0.08; // subtle gravity
+
+        if (this.vy >= -1.5 || this.y <= this.targetY) {
+          this.explode();
+          this.exploded = true;
+        }
+      }
+
+      explode() {
+        const count = 90 + Math.floor(Math.random() * 50);
+        for (let i = 0; i < count; i++) {
+          particles.push(new Particle(this.x, this.y, this.palette));
+        }
+      }
+
+      draw() {
+        ctx.save();
+        for (let i = 0; i < this.trail.length; i++) {
+          const pt = this.trail[i];
+          ctx.beginPath();
+          ctx.arc(pt.x, pt.y, 2, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 230, 180, ${i / this.trail.length})`;
+          ctx.fill();
+        }
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.shadowColor = '#FACC15';
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    class Particle {
+      constructor(x, y, palette) {
+        this.x = x;
+        this.y = y;
+        this.color = palette[Math.floor(Math.random() * palette.length)];
+        const speed = Math.random() * 7 + 1.5;
+        const angle = Math.random() * Math.PI * 2;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.friction = 0.96;
+        this.gravity = 0.09;
+        this.alpha = 1;
+        this.decay = Math.random() * 0.018 + 0.012;
+        this.size = Math.random() * 3 + 1.2;
+        this.twinkle = Math.random() > 0.4;
+      }
+
+      update() {
+        this.vx *= this.friction;
+        this.vy *= this.friction;
+        this.vy += this.gravity;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= this.decay;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        if (this.twinkle && Math.random() > 0.5) {
+          ctx.shadowBlur = 14;
+          ctx.shadowColor = this.color;
+        }
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function animateFireworks() {
+      requestAnimationFrame(animateFireworks);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Chance of ambient gentle launch
+      if (Math.random() < 0.025) {
+        rockets.push(new Rocket());
+      }
+
+      // Update rockets
+      for (let i = rockets.length - 1; i >= 0; i--) {
+        const r = rockets[i];
+        r.update();
+        r.draw();
+        if (r.exploded) {
+          rockets.splice(i, 1);
+        }
+      }
+
+      // Update particles
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+    }
+    animateFireworks();
+
+    // Tap/Click Anywhere to Launch Firework
+    window.addEventListener('click', (e) => {
+      // Don't launch when clicking buttons/modal
+      if (e.target.closest('button') || e.target.closest('input') || e.target.closest('.sheet-modal') || e.target.closest('a')) {
+        return;
+      }
+      rockets.push(new Rocket(e.clientX, e.clientY));
+      createBurstAt(e.clientX, e.clientY);
+    });
+
+    function triggerGrandCelebration() {
+      for (let i = 0; i < 7; i++) {
+        setTimeout(() => {
+          rockets.push(new Rocket());
+        }, i * 220);
+      }
+      showToast('🎉 Celebrating love with grand fireworks!');
+    }
+
+    /* =============================================================
+       8. FLOATING 3D GLASS HEARTS GENERATOR
+       ============================================================= */
+    const heartsContainer = document.getElementById('heartsContainer');
+    const HEART_COLORS = ['#FF3366', '#FB7185', '#F4A7B9', '#FACC15', '#C084FC'];
+
+    function createAmbientHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'ambient-heart';
+      const color = HEART_COLORS[Math.floor(Math.random() * HEART_COLORS.length)];
+      const size = Math.random() * 20 + 14;
+      const duration = Math.random() * 6 + 7;
+      const driftX = (Math.random() - 0.5) * 120;
+      const rot = (Math.random() - 0.5) * 45;
+      const left = Math.random() * 95;
+
+      heart.innerHTML = `<i class="fas fa-heart" style="color: ${color}; font-size: ${size}px;"></i>`;
+      heart.style.left = `${left}vw`;
+      heart.style.setProperty('--duration', `${duration}s`);
+      heart.style.setProperty('--drift-x', `${driftX}px`);
+      heart.style.setProperty('--rot', `${rot}deg`);
+      heart.style.setProperty('--max-opacity', (Math.random() * 0.4 + 0.4).toFixed(2));
+
+      heart.addEventListener('click', () => {
+        createBurstAt(heart.getBoundingClientRect().left + size / 2, heart.getBoundingClientRect().top + size / 2);
+        heart.remove();
+      });
+
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), duration * 1000);
+    }
+
+    setInterval(createAmbientHeart, 1200);
+
+    function createBurstAt(x, y) {
+      const palette = PALETTES[Math.floor(Math.random() * PALETTES.length)];
+      for (let i = 0; i < 35; i++) {
+        particles.push(new Particle(x, y, palette));
+      }
+    }
+
+    /* =============================================================
+       9. EXPORT / SAVE CARD SNAPSHOT
+       ============================================================= */
+    function exportCardSnapshot() {
+      showToast('Generating high-res card snapshot... 📸');
+      
+      const snapCanvas = document.createElement('canvas');
+      snapCanvas.width = 1200;
+      snapCanvas.height = 1200;
+      const sCtx = snapCanvas.getContext('2d');
+
+      // Apple Gradient Background
+      const bgGrad = sCtx.createLinearGradient(0, 0, 1200, 1200);
+      bgGrad.addColorStop(0, '#090B10');
+      bgGrad.addColorStop(0.5, '#1B1429');
+      bgGrad.addColorStop(1, '#0F172A');
+      sCtx.fillStyle = bgGrad;
+      sCtx.fillRect(0, 0, 1200, 1200);
+
+      // Glass Card Rim
+      sCtx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+      sCtx.roundRect(100, 100, 1000, 1000, 48);
+      sCtx.fill();
+      sCtx.lineWidth = 2;
+      sCtx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+      sCtx.stroke();
+
+      // Card Header
+      sCtx.textAlign = 'center';
+      sCtx.font = 'bold 30px -apple-system, sans-serif';
+      sCtx.fillStyle = '#FB7185';
+      sCtx.fillText('✨ HAPPY ANNIVERSARY CELEBRATION ✨', 600, 240);
+
+      // Milestone Title
+      const data = computeAnniversaryMilestone(state.date);
+      const ordinal = data ? getOrdinalSuffix(data.currentMilestoneNumber) : 'Happy';
+      sCtx.font = 'italic bold 64px Georgia, serif';
+      sCtx.fillStyle = '#FFFFFF';
+      sCtx.fillText(`${ordinal} Wedding Anniversary`, 600, 340);
+
+      // Couple Names
+      sCtx.font = 'bold 52px -apple-system, sans-serif';
+      sCtx.fillStyle = '#F5D061';
+      sCtx.fillText(`${state.names} ❤️`, 600, 430);
+
+      // Message
+      sCtx.font = 'italic 34px Georgia, serif';
+      sCtx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+      wrapText(sCtx, `"${state.message}"`, 600, 540, 800, 46);
+
+      // Tradition
+      if (data) {
+        sCtx.font = '600 28px -apple-system, sans-serif';
+        sCtx.fillStyle = '#E5C388';
+        sCtx.fillText(`${data.tradition.emoji} ${data.tradition.name} — ${data.yearsCompleted} Glorious Years Together`, 600, 750);
+        
+        sCtx.font = '24px -apple-system, sans-serif';
+        sCtx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        sCtx.fillText(`Together Since ${data.weddingDateFormatted}`, 600, 810);
+      }
+
+      // Watermark
+      sCtx.font = '20px -apple-system, sans-serif';
+      sCtx.fillStyle = 'rgba(255, 255, 255, 0.35)';
+      sCtx.fillText('Created with Happy Anniversary Card Generator • Rahul08319', 600, 1020);
+
+      // Trigger download
+      const link = document.createElement('a');
+      link.download = `${state.names.replace(/[^a-zA-Z0-9]/g, '_')}_Anniversary_Card.png`;
+      link.href = snapCanvas.toDataURL('image/png');
+      link.click();
+      showToast('Card snapshot saved! 📥');
+    }
+
+    function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+      const words = text.split(' ');
+      let line = '';
+      for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + ' ';
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && n > 0) {
+          ctx.fillText(line, x, y);
+          line = words[n] + ' ';
+          y += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line, x, y);
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadUrlParams();
+    });
   </script>
 </body>
 </html>
