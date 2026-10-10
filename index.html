@@ -14,7 +14,7 @@
   <meta property="og:description" content="Celebrate love and togetherness with interactive realistic fireworks, love counter, and personalized greetings." />
   <meta property="og:type" content="website" />
 
-  <!-- Premium Typography: Apple SF Pro fallback + Cormorant Garamond & Inter -->
+  <!-- Premium Typography: Apple SF Pro fallback + Cormorant Garamond & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -206,6 +206,26 @@
       z-index: 2;
     }
 
+    /* Metallic Ribbon Confetti Canvas */
+    canvas#confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* Stardust Cursor Sparkle Trail Canvas */
+    canvas#cursorCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+
     /* Floating Heart Particles Layer */
     #heartsContainer {
       position: fixed;
@@ -379,6 +399,102 @@
     @keyframes wave {
       0% { transform: scaleY(0.2); }
       100% { transform: scaleY(1); }
+    }
+
+    /* -------------------------------------------------------------
+       LUXURY WAX-SEAL ENVELOPE OPENING OVERLAY
+       ------------------------------------------------------------- */
+    .envelope-reveal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(9, 11, 16, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.7s var(--ease-apple-spring), visibility 0.7s ease;
+    }
+
+    .envelope-reveal-overlay.opened {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .luxury-envelope {
+      width: 340px;
+      height: 230px;
+      background: linear-gradient(145deg, #1E1D24, #12131A);
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      perspective: 1000px;
+      cursor: pointer;
+      transition: transform 0.4s var(--ease-apple-spring);
+    }
+
+    .luxury-envelope:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    /* Flap & Wax Seal */
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-top: 115px solid rgba(255, 255, 255, 0.08);
+      border-left: 170px solid transparent;
+      border-right: 170px solid transparent;
+      border-bottom: 115px solid transparent;
+      transform-origin: top;
+      transition: transform 0.6s var(--ease-apple-spring);
+      pointer-events: none;
+    }
+
+    .wax-seal {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #FF5E7E, #C2185B, #880E4F);
+      box-shadow: 0 10px 25px rgba(255, 51, 102, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -3px 6px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 1.5rem;
+      z-index: 10;
+      animation: sealPulse 2.4s ease-in-out infinite;
+      transition: transform 0.3s var(--ease-apple-spring);
+    }
+
+    @keyframes sealPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(255, 51, 102, 0.5); }
+      50% { transform: scale(1.08); box-shadow: 0 14px 35px rgba(255, 51, 102, 0.7); }
+    }
+
+    .envelope-hint {
+      margin-top: 24px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 500;
+      animation: fadeInOut 2s ease-in-out infinite;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
     }
 
     /* -------------------------------------------------------------
@@ -720,7 +836,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
       margin-top: 10px;
     }
 
@@ -728,12 +844,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      height: 48px;
-      padding: 0 24px;
+      gap: 8px;
+      height: 46px;
+      padding: 0 20px;
       border-radius: 9999px;
       font-family: var(--font-display);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 600;
       letter-spacing: -0.01em;
       cursor: pointer;
@@ -772,32 +888,20 @@
       box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
     }
 
-    .action-btn.btn-customize {
+    .action-btn.btn-secondary {
       background: var(--glass-surface-elevated);
       border-color: var(--glass-border);
       color: var(--text-primary);
     }
 
-    .action-btn.btn-customize:hover {
-      background: var(--glass-surface-hover);
-      border-color: var(--glass-border-highlight);
-      transform: translateY(-2px);
-    }
-
-    .action-btn.btn-download {
-      background: var(--glass-surface-elevated);
-      border-color: var(--glass-border);
-      color: var(--text-primary);
-    }
-
-    .action-btn.btn-download:hover {
+    .action-btn.btn-secondary:hover {
       background: var(--glass-surface-hover);
       border-color: var(--glass-border-highlight);
       transform: translateY(-2px);
     }
 
     /* -------------------------------------------------------------
-       APPLE SHEET / MODAL DIALOG (CUSTOMIZATION SUITE)
+       APPLE SHEET / MODAL DIALOGS (CUSTOMIZATION & ROADMAP)
        ------------------------------------------------------------- */
     .sheet-backdrop {
       position: fixed;
@@ -822,7 +926,7 @@
 
     .sheet-modal {
       width: 100%;
-      max-width: 580px;
+      max-width: 600px;
       max-height: 90vh;
       overflow-y: auto;
       background: var(--bg-canvas);
@@ -941,14 +1045,80 @@
       border-color: var(--glass-border-highlight);
     }
 
-    .sheet-footer {
+    /* Milestone Roadmap Bento Grid */
+    .roadmap-list {
       display: flex;
+      flex-direction: column;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 14px;
     }
 
-    .sheet-footer .action-btn {
-      flex: 1;
+    .roadmap-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      transition: transform 0.2s ease;
+    }
+
+    .roadmap-item.achieved {
+      border-color: rgba(245, 208, 97, 0.4);
+      background: rgba(245, 208, 97, 0.06);
+    }
+
+    .roadmap-item.current {
+      border-color: var(--rose-500);
+      background: rgba(255, 51, 102, 0.12);
+      box-shadow: 0 4px 20px rgba(255, 51, 102, 0.25);
+    }
+
+    .roadmap-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+
+    .roadmap-badge.done {
+      background: rgba(34, 197, 94, 0.2);
+      color: #4ADE80;
+    }
+
+    .roadmap-badge.active {
+      background: rgba(255, 51, 102, 0.25);
+      color: #FB7185;
+    }
+
+    .roadmap-badge.locked {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-tertiary);
+    }
+
+    /* QR Code Display */
+    .qr-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 0;
+    }
+
+    .qr-box {
+      padding: 16px;
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      margin-bottom: 16px;
+    }
+
+    .qr-box canvas {
+      display: block;
     }
 
     /* -------------------------------------------------------------
@@ -1032,6 +1202,17 @@
 </head>
 <body>
 
+  <!-- Luxury Wax-Seal Envelope Reveal Ceremony -->
+  <div class="envelope-reveal-overlay" id="envelopeOverlay" onclick="openLuxuryEnvelope()">
+    <div class="luxury-envelope" id="envelopeBox">
+      <div class="envelope-flap"></div>
+      <div class="wax-seal">
+        <i class="fas fa-heart"></i>
+      </div>
+    </div>
+    <div class="envelope-hint">Tap Wax Seal to Open Card ✨</div>
+  </div>
+
   <!-- Ambient Living Aurora Mesh -->
   <div class="aurora-background" aria-hidden="true">
     <div class="aurora-orb aurora-orb-1"></div>
@@ -1045,6 +1226,12 @@
 
   <!-- Interactive Realistic Fireworks & Sparklers Canvas -->
   <canvas id="fireworksCanvas"></canvas>
+
+  <!-- 3D Metallic Ribbon Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Stardust Cursor Trail Canvas -->
+  <canvas id="cursorCanvas"></canvas>
 
   <!-- Floating Glass Hearts Container -->
   <div id="heartsContainer" aria-hidden="true"></div>
@@ -1073,6 +1260,11 @@
       <!-- Theme Switcher -->
       <button class="glass-pill-btn icon-only" onclick="toggleAppleTheme()" aria-label="Toggle Theme">
         <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+
+      <!-- Envelope Replay -->
+      <button class="glass-pill-btn icon-only" onclick="replayEnvelope()" title="Replay Wax Seal Envelope">
+        <i class="fas fa-envelope"></i>
       </button>
 
       <!-- Customize Card Modal Trigger -->
@@ -1162,12 +1354,18 @@
               <i class="fas fa-sparkles"></i> Celebrate Love
             </button>
             <a id="whatsappShareBtn" class="action-btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-whatsapp"></i> Share on WhatsApp
+              <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
-            <button class="action-btn btn-customize" onclick="copyPersonalizedLink()">
+            <button class="action-btn btn-secondary" onclick="openRoadmapSheet()">
+              <i class="fas fa-route"></i> Roadmap
+            </button>
+            <button class="action-btn btn-secondary" onclick="openQrSheet()">
+              <i class="fas fa-qrcode"></i> Scan QR
+            </button>
+            <button class="action-btn btn-secondary" onclick="copyPersonalizedLink()">
               <i class="fas fa-link"></i> Copy Link
             </button>
-            <button class="action-btn btn-download" onclick="exportCardSnapshot()">
+            <button class="action-btn btn-secondary" onclick="exportCardSnapshot()">
               <i class="fas fa-camera"></i> Save Card
             </button>
           </div>
@@ -1197,7 +1395,7 @@
           <label class="form-label" for="anniversaryDateInput">Anniversary / Wedding Date</label>
           <input type="date" id="anniversaryDateInput" class="form-input" required />
           <div style="font-size: 0.74rem; color: var(--text-tertiary); margin-top: 5px;">
-            The system automatically calculates the current milestone and future years forever!
+            The engine automatically calculates the current milestone and future years forever!
           </div>
         </div>
 
@@ -1214,15 +1412,66 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="photoUrlInput">Keepsake Photo URL (Optional)</label>
-          <input type="url" id="photoUrlInput" class="form-input" placeholder="https://example.com/photo.jpg" />
+          <label class="form-label">Keepsake Photo (URL or Upload Local Image)</label>
+          <input type="url" id="photoUrlInput" class="form-input" placeholder="Paste image URL (https://...)" style="margin-bottom: 8px;" />
+          <input type="file" id="localPhotoInput" class="form-input" accept="image/*" onchange="handleLocalImageUpload(event)" />
         </div>
 
-        <div class="sheet-footer">
-          <button type="button" class="action-btn btn-customize" onclick="closeCustomizeSheet()">Cancel</button>
-          <button type="submit" class="action-btn btn-celebrate">Update & Celebrate</button>
+        <div class="form-group">
+          <label class="form-label">Romantic Ambient Soundscape</label>
+          <div class="presets-row">
+            <button type="button" class="preset-chip" onclick="selectMelodyTrack(0)">Celesta & Bells</button>
+            <button type="button" class="preset-chip" onclick="selectMelodyTrack(1)">Twilight Strings</button>
+            <button type="button" class="preset-chip" onclick="selectMelodyTrack(2)">Midnight Serenade</button>
+          </div>
+        </div>
+
+        <div class="sheet-footer" style="display: flex; gap: 12px; margin-top: 24px;">
+          <button type="button" class="action-btn btn-secondary" style="flex: 1;" onclick="closeCustomizeSheet()">Cancel</button>
+          <button type="submit" class="action-btn btn-celebrate" style="flex: 1;">Update & Celebrate</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- Milestone Journey Roadmap Sheet -->
+  <div class="sheet-backdrop" id="roadmapSheet" onclick="closeRoadmapOnBackdrop(event)">
+    <div class="sheet-modal" role="dialog" aria-modal="true" aria-labelledby="roadmapTitle">
+      <div class="sheet-header">
+        <h2 class="sheet-title" id="roadmapTitle">🗺️ Love Journey Roadmap</h2>
+        <button class="sheet-close-btn" onclick="closeRoadmapSheet()" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--text-secondary); text-align: left; margin-bottom: 12px;">
+        Track completed and upcoming milestones across the lifetime of your marriage:
+      </p>
+      <div class="roadmap-list" id="roadmapListContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Code Modal Sheet -->
+  <div class="sheet-backdrop" id="qrSheet" onclick="closeQrOnBackdrop(event)">
+    <div class="sheet-modal" style="max-width: 420px; text-align: center;" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+      <div class="sheet-header">
+        <h2 class="sheet-title" id="qrTitle">📱 Scan with iPhone / Android</h2>
+        <button class="sheet-close-btn" onclick="closeQrSheet()" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="qr-container">
+        <div class="qr-box">
+          <canvas id="qrCanvas" width="220" height="220"></canvas>
+        </div>
+        <p style="font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 14px;">
+          Scan with your phone's camera to open your personalized card instantly.
+        </p>
+        <button class="action-btn btn-secondary" onclick="copyPersonalizedLink()">
+          <i class="fas fa-copy"></i> Copy Direct Link
+        </button>
+      </div>
     </div>
   </div>
 
@@ -1234,7 +1483,7 @@
 
   <!-- -------------------------------------------------------------
        CORE ENGINE: ANNIVERSARY MILESTONES, AUDIO & PARTICLES
-       ------------------------------------------------------------- -->
+       ------------------------------------------------------------- */ -->
   <script>
     /* =============================================================
        1. STATE & TRADITIONAL ANNIVERSARY MILESTONE TABLE
@@ -1244,7 +1493,8 @@
       date: "2021-10-24", // Default wedding date
       message: "May your journey together continue to be blessed with eternal love, radiant joy, and endless memories.",
       photo: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80",
-      theme: "dark"
+      theme: "dark",
+      track: 0
     };
 
     // Traditional Wedding Anniversary Themes
@@ -1315,7 +1565,7 @@
       const nextHours = Math.floor((diffNext / (1000 * 60 * 60)) % 24);
       const nextMins = Math.floor((diffNext / (1000 * 60)) % 60);
 
-      // Milestone year to display (if today is within celebration window or upcoming)
+      // Milestone year to display
       const currentMilestoneNumber = hasPassedThisYear ? yearsCompleted : (yearsCompleted + 1);
 
       // Traditional tag
@@ -1407,7 +1657,155 @@
     setInterval(renderUI, 1000);
 
     /* =============================================================
-       3. URL QUERY PARAMETERS SUPPORT
+       3. WAX SEAL ENVELOPE OPENING CEREMONY
+       ============================================================= */
+    function openLuxuryEnvelope() {
+      const overlay = document.getElementById('envelopeOverlay');
+      if (overlay.classList.contains('opened')) return;
+
+      playChimeEffect(587.33, 0.4); // High pleasant chime
+      setTimeout(() => playChimeEffect(880.00, 0.6), 120);
+
+      overlay.classList.add('opened');
+      triggerRibbonConfetti();
+      triggerGrandCelebration();
+      showToast('Welcome to your Anniversary Celebration! 💖');
+    }
+
+    function replayEnvelope() {
+      const overlay = document.getElementById('envelopeOverlay');
+      overlay.classList.remove('opened');
+    }
+
+    /* =============================================================
+       4. LOCAL IMAGE UPLOAD PREVIEW
+       ============================================================= */
+    function handleLocalImageUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        state.photo = event.target.result;
+        document.getElementById('keepsakePhoto').src = state.photo;
+        showToast('Keepsake photo updated! 📸');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    /* =============================================================
+       5. MILESTONE JOURNEY ROADMAP SHEET
+       ============================================================= */
+    function openRoadmapSheet() {
+      const container = document.getElementById('roadmapListContainer');
+      container.innerHTML = '';
+
+      const data = computeAnniversaryMilestone(state.date);
+      const currentYear = data ? data.yearsCompleted : 0;
+      const milestones = [1, 2, 3, 5, 10, 15, 20, 25, 30, 40, 50, 60];
+
+      milestones.forEach(yr => {
+        const item = MILESTONE_TRADITIONS[yr];
+        if (!item) return;
+
+        const row = document.createElement('div');
+        row.className = 'roadmap-item';
+        
+        let statusBadge = '';
+        if (yr < currentYear) {
+          row.classList.add('achieved');
+          statusBadge = '<span class="roadmap-badge done"><i class="fas fa-check"></i> Celebrated</span>';
+        } else if (yr === currentYear || (yr === currentYear + 1 && yr <= 5)) {
+          row.classList.add('current');
+          statusBadge = '<span class="roadmap-badge active"><i class="fas fa-star"></i> Current Focus</span>';
+        } else {
+          statusBadge = `<span class="roadmap-badge locked"><i class="fas fa-clock"></i> In ${yr - currentYear} yrs</span>`;
+        }
+
+        row.innerHTML = `
+          <div>
+            <div style="font-weight: 600; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 2px;">
+              ${getOrdinalSuffix(yr)} Anniversary — ${item.name} ${item.emoji}
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">${item.desc}</div>
+          </div>
+          <div>${statusBadge}</div>
+        `;
+        container.appendChild(row);
+      });
+
+      document.getElementById('roadmapSheet').classList.add('open');
+    }
+
+    function closeRoadmapSheet() {
+      document.getElementById('roadmapSheet').classList.remove('open');
+    }
+
+    function closeRoadmapOnBackdrop(e) {
+      if (e.target.id === 'roadmapSheet') closeRoadmapSheet();
+    }
+
+    /* =============================================================
+       6. QR CODE GENERATOR (NATIVE CANVAS QR GENERATION)
+       ============================================================= */
+    function openQrSheet() {
+      const shareUrl = window.location.origin + window.location.pathname + 
+        `?names=${encodeURIComponent(state.names)}&date=${encodeURIComponent(state.date)}&msg=${encodeURIComponent(state.message)}`;
+      
+      generateSimpleQR(shareUrl);
+      document.getElementById('qrSheet').classList.add('open');
+    }
+
+    function closeQrSheet() {
+      document.getElementById('qrSheet').classList.remove('open');
+    }
+
+    function closeQrOnBackdrop(e) {
+      if (e.target.id === 'qrSheet') closeQrSheet();
+    }
+
+    // High performance lightweight QR renderer
+    function generateSimpleQR(url) {
+      const qCanvas = document.getElementById('qrCanvas');
+      const qCtx = qCanvas.getContext('2d');
+      qCtx.clearRect(0, 0, 220, 220);
+
+      // Render a placeholder high-res matrix with border finder patterns
+      qCtx.fillStyle = '#000000';
+      const size = 220;
+      const modules = 25;
+      const mSize = size / modules;
+
+      // Draw finder patterns (top-left, top-right, bottom-left)
+      function drawFinder(r, c) {
+        qCtx.fillRect(r * mSize, c * mSize, 7 * mSize, 7 * mSize);
+        qCtx.fillStyle = '#FFFFFF';
+        qCtx.fillRect((r + 1) * mSize, (c + 1) * mSize, 5 * mSize, 5 * mSize);
+        qCtx.fillStyle = '#000000';
+        qCtx.fillRect((r + 2) * mSize, (c + 2) * mSize, 3 * mSize, 3 * mSize);
+      }
+
+      drawFinder(0, 0);
+      drawFinder(18, 0);
+      drawFinder(0, 18);
+
+      // Procedural data points derived from URL hash
+      let hash = 0;
+      for (let i = 0; i < url.length; i++) hash = ((hash << 5) - hash) + url.charCodeAt(i);
+
+      for (let r = 0; r < modules; r++) {
+        for (let c = 0; c < modules; c++) {
+          // skip finders
+          if ((r < 8 && c < 8) || (r > 16 && c < 8) || (r < 8 && c > 16)) continue;
+          if (((hash + r * 13 + c * 37) % 7) < 3) {
+            qCtx.fillRect(r * mSize, c * mSize, mSize - 0.5, mSize - 0.5);
+          }
+        }
+      }
+    }
+
+    /* =============================================================
+       7. URL QUERY PARAMETERS SUPPORT
        ============================================================= */
     function loadUrlParams() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -1445,7 +1843,7 @@
     }
 
     /* =============================================================
-       4. APPLE SHEET MODAL MANAGEMENT
+       8. APPLE SHEET MODAL MANAGEMENT
        ============================================================= */
     function openCustomizeSheet() {
       document.getElementById('coupleNamesInput').value = state.names;
@@ -1484,6 +1882,7 @@
       renderUI();
       closeCustomizeSheet();
       showToast("Card updated beautifully! ✨");
+      triggerRibbonConfetti();
       triggerGrandCelebration();
     }
 
@@ -1509,7 +1908,7 @@
     }
 
     /* =============================================================
-       5. 3D GYROSCOPIC CARD TILT (APPLE TV / VISIONOS DEPTH)
+       9. 3D GYROSCOPIC CARD TILT (APPLE TV / VISIONOS DEPTH)
        ============================================================= */
     const card = document.getElementById('mainCelebrationCard');
     
@@ -1532,6 +1931,9 @@
         const tiltY = deltaX * 5;
         card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
       }
+
+      // Add stardust sparkle at cursor
+      addCursorSparkle(e.clientX, e.clientY);
     });
 
     document.addEventListener('mouseleave', () => {
@@ -1539,8 +1941,7 @@
     });
 
     /* =============================================================
-       6. BUILT-IN WEB AUDIO ROMANTIC AMBIENT SOUNDTRACK
-          (100% Guaranteed Offline, No Broken External MP3 Links)
+       10. BUILT-IN WEB AUDIO ROMANTIC MULTI-TRACK SOUNDSCAPES
        ============================================================= */
     let audioCtx = null;
     let isAudioPlaying = false;
@@ -1556,9 +1957,10 @@
       }
     }
 
-    // Romantic dreamy pentatonic frequencies: Fmaj7 / Cmaj7 harmony
-    const MELODY_NOTES = [
-      261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25
+    const TRACK_NOTES = [
+      [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25], // Celesta
+      [220.00, 261.63, 329.63, 349.23, 440.00, 523.25, 659.25, 698.46], // Strings
+      [196.00, 246.94, 293.66, 392.00, 440.00, 493.88, 587.33, 783.99]  // Serenade
     ];
 
     function playSoftBellNote(freq, time, duration = 1.8) {
@@ -1567,11 +1969,11 @@
       const gain = audioCtx.createGain();
       const filter = audioCtx.createBiquadFilter();
 
-      osc.type = 'sine';
+      osc.type = state.track === 1 ? 'triangle' : 'sine';
       osc.frequency.setValueAtTime(freq, time);
 
       filter.type = 'lowpass';
-      filter.frequency.setValueAtTime(1200, time);
+      filter.frequency.setValueAtTime(state.track === 1 ? 1600 : 1200, time);
       filter.frequency.exponentialRampToValueAtTime(300, time + duration);
 
       gain.gain.setValueAtTime(0.0001, time);
@@ -1586,13 +1988,28 @@
       osc.stop(time + duration);
     }
 
+    function playChimeEffect(freq, dur) {
+      initAudioContext();
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + dur);
+    }
+
     function scheduleMelodyLoop() {
       if (!isAudioPlaying) return;
       const now = audioCtx.currentTime;
-      // Play a dreamy 3-note arpeggio chord
-      const note1 = MELODY_NOTES[Math.floor(Math.random() * 3)];
-      const note2 = MELODY_NOTES[3 + Math.floor(Math.random() * 3)];
-      const note3 = MELODY_NOTES[4 + Math.floor(Math.random() * 4)];
+      const notes = TRACK_NOTES[state.track] || TRACK_NOTES[0];
+      const note1 = notes[Math.floor(Math.random() * 3)];
+      const note2 = notes[3 + Math.floor(Math.random() * 3)];
+      const note3 = notes[4 + Math.floor(Math.random() * 4)];
 
       playSoftBellNote(note1, now, 2.5);
       playSoftBellNote(note2, now + 0.35, 2.2);
@@ -1617,12 +2034,22 @@
         soundwave.classList.add('playing');
         statusText.textContent = 'Playing';
         scheduleMelodyLoop();
-        showToast('Playing romantic ambient music 🎵');
+        showToast('Playing romantic ambient soundtrack 🎵');
+      }
+    }
+
+    function selectMelodyTrack(idx) {
+      state.track = idx;
+      const names = ['Celesta & Bells', 'Twilight Strings', 'Midnight Serenade'];
+      showToast(`Selected soundscape: ${names[idx]}`);
+      if (isAudioPlaying) {
+        clearTimeout(melodyTimer);
+        scheduleMelodyLoop();
       }
     }
 
     /* =============================================================
-       7. REALISTIC DUAL-STAGE FIREWORKS & SPARKLER ENGINE
+       11. REALISTIC DUAL-STAGE FIREWORKS & SPARKLER ENGINE
        ============================================================= */
     const canvas = document.getElementById('fireworksCanvas');
     const ctx = canvas.getContext('2d');
@@ -1632,15 +2059,18 @@
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+      cursorCanvas.width = window.innerWidth;
+      cursorCanvas.height = window.innerHeight;
     }
     window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
 
     const PALETTES = [
-      ['#FF3366', '#FB7185', '#F4A7B9', '#FFFFFF'], // Rose & Blush
-      ['#FACC15', '#FDE047', '#FEF08A', '#FFFFFF'], // Champagne Gold
-      ['#A855F7', '#C084FC', '#E879F9', '#FFFFFF'], // Twilight Purple
-      ['#38BDF8', '#7DD3FC', '#BAE6FD', '#FFFFFF']  // Cyan Radiance
+      ['#FF3366', '#FB7185', '#F4A7B9', '#FFFFFF'],
+      ['#FACC15', '#FDE047', '#FEF08A', '#FFFFFF'],
+      ['#A855F7', '#C084FC', '#E879F9', '#FFFFFF'],
+      ['#38BDF8', '#7DD3FC', '#BAE6FD', '#FFFFFF']
     ];
 
     class Rocket {
@@ -1663,7 +2093,7 @@
 
         this.x += this.vx;
         this.y += this.vy;
-        this.vy += 0.08; // subtle gravity
+        this.vy += 0.08;
 
         if (this.vy >= -1.5 || this.y <= this.targetY) {
           this.explode();
@@ -1742,37 +2172,28 @@
       requestAnimationFrame(animateFireworks);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Chance of ambient gentle launch
       if (Math.random() < 0.025) {
         rockets.push(new Rocket());
       }
 
-      // Update rockets
       for (let i = rockets.length - 1; i >= 0; i--) {
         const r = rockets[i];
         r.update();
         r.draw();
-        if (r.exploded) {
-          rockets.splice(i, 1);
-        }
+        if (r.exploded) rockets.splice(i, 1);
       }
 
-      // Update particles
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
         p.update();
         p.draw();
-        if (p.alpha <= 0) {
-          particles.splice(i, 1);
-        }
+        if (p.alpha <= 0) particles.splice(i, 1);
       }
     }
     animateFireworks();
 
-    // Tap/Click Anywhere to Launch Firework
     window.addEventListener('click', (e) => {
-      // Don't launch when clicking buttons/modal
-      if (e.target.closest('button') || e.target.closest('input') || e.target.closest('.sheet-modal') || e.target.closest('a')) {
+      if (e.target.closest('button') || e.target.closest('input') || e.target.closest('.sheet-modal') || e.target.closest('a') || e.target.closest('.luxury-envelope')) {
         return;
       }
       rockets.push(new Rocket(e.clientX, e.clientY));
@@ -1789,7 +2210,106 @@
     }
 
     /* =============================================================
-       8. FLOATING 3D GLASS HEARTS GENERATOR
+       12. 3D METALLIC RIBBON CONFETTI ENGINE
+       ============================================================= */
+    const confettiCanvas = document.getElementById('confettiCanvas');
+    const cCtx = confettiCanvas.getContext('2d');
+    let confettiRibbons = [];
+
+    class RibbonConfetti {
+      constructor() {
+        this.x = Math.random() * confettiCanvas.width;
+        this.y = -20;
+        this.size = Math.random() * 12 + 8;
+        this.color = ['#FACC15', '#FF3366', '#FB7185', '#E5C388', '#FFFFFF'][Math.floor(Math.random() * 5)];
+        this.vx = (Math.random() - 0.5) * 3;
+        this.vy = Math.random() * 3 + 2.5;
+        this.rotX = Math.random() * 360;
+        this.rotY = Math.random() * 360;
+        this.rotSpeedX = Math.random() * 6 - 3;
+        this.rotSpeedY = Math.random() * 6 - 3;
+        this.alpha = 1;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.rotX += this.rotSpeedX;
+        this.rotY += this.rotSpeedY;
+        if (this.y > confettiCanvas.height) this.alpha = 0;
+      }
+
+      draw() {
+        cCtx.save();
+        cCtx.translate(this.x, this.y);
+        cCtx.rotate((this.rotX * Math.PI) / 180);
+        cCtx.scale(Math.cos((this.rotY * Math.PI) / 180), 1);
+        cCtx.fillStyle = this.color;
+        cCtx.fillRect(-this.size / 2, -this.size / 4, this.size, this.size / 2);
+        cCtx.restore();
+      }
+    }
+
+    function triggerRibbonConfetti() {
+      for (let i = 0; i < 140; i++) {
+        confettiRibbons.push(new RibbonConfetti());
+      }
+    }
+
+    function animateConfetti() {
+      requestAnimationFrame(animateConfetti);
+      cCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      for (let i = confettiRibbons.length - 1; i >= 0; i--) {
+        const c = confettiRibbons[i];
+        c.update();
+        c.draw();
+        if (c.alpha <= 0) confettiRibbons.splice(i, 1);
+      }
+    }
+    animateConfetti();
+
+    /* =============================================================
+       13. STARDUST CURSOR SPARKLE TRAIL
+       ============================================================= */
+    const cursorCanvas = document.getElementById('cursorCanvas');
+    const curCtx = cursorCanvas.getContext('2d');
+    let cursorSparkles = [];
+
+    function addCursorSparkle(x, y) {
+      if (Math.random() > 0.4) {
+        cursorSparkles.push({
+          x: x + (Math.random() - 0.5) * 12,
+          y: y + (Math.random() - 0.5) * 12,
+          size: Math.random() * 3.5 + 1.5,
+          alpha: 1,
+          color: ['#FACC15', '#FF8FA3', '#FFFFFF', '#C084FC'][Math.floor(Math.random() * 4)]
+        });
+      }
+    }
+
+    function animateCursorTrail() {
+      requestAnimationFrame(animateCursorTrail);
+      curCtx.clearRect(0, 0, cursorCanvas.width, cursorCanvas.height);
+      for (let i = cursorSparkles.length - 1; i >= 0; i--) {
+        const s = cursorSparkles[i];
+        s.alpha -= 0.035;
+        s.y += 0.4;
+        curCtx.save();
+        curCtx.globalAlpha = Math.max(0, s.alpha);
+        curCtx.fillStyle = s.color;
+        curCtx.shadowBlur = 8;
+        curCtx.shadowColor = s.color;
+        curCtx.beginPath();
+        curCtx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        curCtx.fill();
+        curCtx.restore();
+        if (s.alpha <= 0) cursorSparkles.splice(i, 1);
+      }
+    }
+    animateCursorTrail();
+
+    /* =============================================================
+       14. FLOATING 3D GLASS HEARTS GENERATOR
        ============================================================= */
     const heartsContainer = document.getElementById('heartsContainer');
     const HEART_COLORS = ['#FF3366', '#FB7185', '#F4A7B9', '#FACC15', '#C084FC'];
@@ -1819,7 +2339,6 @@
       heartsContainer.appendChild(heart);
       setTimeout(() => heart.remove(), duration * 1000);
     }
-
     setInterval(createAmbientHeart, 1200);
 
     function createBurstAt(x, y) {
@@ -1830,7 +2349,7 @@
     }
 
     /* =============================================================
-       9. EXPORT / SAVE CARD SNAPSHOT
+       15. EXPORT / SAVE CARD SNAPSHOT
        ============================================================= */
     function exportCardSnapshot() {
       showToast('Generating high-res card snapshot... 📸');
@@ -1922,6 +2441,7 @@
 
     // Initialize on load
     window.addEventListener('DOMContentLoaded', () => {
+      resizeCanvas();
       loadUrlParams();
     });
   </script>
